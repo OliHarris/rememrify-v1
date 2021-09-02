@@ -33,7 +33,7 @@ Will perform 'connect' and 'watch' tasks for development on http://localhost:300
 
 My code will need to POST the 'spotify-connect.php' file, found in the ./builds/development folder. This will need to include your own personal Spotify 'client_id' and 'client_secret' keys.
 
-The code is based on:
+This file is based on:
 
 https://gist.github.com/ahallora/4aac6d048742d5de0e65
 
@@ -41,6 +41,4 @@ https://gist.github.com/ahallora/4aac6d048742d5de0e65
 
 Github pages currently do not support PHP as it only supports static websites, hence the link located at:
 
-https://oliharris.github.io/rememrify/builds/development/
-
-Is not completely functional - will look at best way around this ASAP.
+http://rememrify.byethost4.com
