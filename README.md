@@ -1,9 +1,14 @@
 # rememrify
 The Spotify UK Charts Archive generator
+
 NOTE:
+
 My code will POST to a secret 'spotify-connect.php' file, which I will document more in due time. This would include your Spotify 'client_id' and 'client_secret'.
+
 Github pages currently do not support PHP as it only supports static websites, hence the link located at:
+
 https://OliHarris.github.io/rememrify/builds/development
+
 Is not completely functional - will look at best way around this ASAP.
 
 ## Available Scripts
