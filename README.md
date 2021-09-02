@@ -1,9 +1,15 @@
 # rememrify
 The Spotify UK Charts Archive generator
 
-NOTE:
+## NOTE 1:
 
-My code will POST to a secret 'spotify-connect.php' file, which I will document more in due time. This would include your Spotify 'client_id' and 'client_secret'.
+My code will need to POST to a secret 'spotify-connect.php' file, which I have obviously removed from this repo. This would include your Spotify 'client_id' and 'client_secret', and go in the ./builds/development folder.
+
+Here is the code:
+
+<script src="https://gist.github.com/ahallora/4aac6d048742d5de0e65.js"></script>
+
+## NOTE 2:
 
 Github pages currently do not support PHP as it only supports static websites, hence the link located at:
 
