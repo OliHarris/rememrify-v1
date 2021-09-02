@@ -34,7 +34,7 @@ echo $token;
 
 Github pages currently do not support PHP as it only supports static websites, hence the link located at:
 
-https://OliHarris.github.io/rememrify/builds/development
+https://oliharris.github.io/rememrify/builds/development/
 
 Is not completely functional - will look at best way around this ASAP.
 
@@ -48,7 +48,7 @@ This perform a usual installation of any dependencies.
 
 ### `grunt`
 
-Make sure you have already run 'npm install -g grunt-cli'.
+Make sure you have already run 'npm install -g grunt-cli' to globally install the Grunt CLI.
 
 Will perform 'concat' and 'sass' tasks to format output in 'builds/development' folder.
 
