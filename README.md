@@ -7,7 +7,7 @@ My code will need to POST to a secret 'spotify-connect.php' file, which I have o
 
 Here is the code:
 
-<script src="https://gist.github.com/ahallora/4aac6d048742d5de0e65.js"></script>
+https://gist.github.com/ahallora/4aac6d048742d5de0e65
 
 ## NOTE 2:
 
