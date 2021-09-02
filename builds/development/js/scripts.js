@@ -140,9 +140,9 @@ function weekpicker() {
                         };
                         
                         var artist = stringCleanser($(artist_array[i]).text());                       
-                        console.log(artist);
+                        // console.log(artist);
                         var song = stringCleanser($(song_array[i]).text());
-                        console.log(song);
+                        // console.log(song);
                         
                         /* find censored-starred single words and curly-braces {} then remove them */
                         /* replace between two +'s */

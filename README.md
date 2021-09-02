@@ -31,32 +31,11 @@ Will perform 'connect' and 'watch' tasks for development on http://localhost:300
 
 ## NOTE 1:
 
-My code will need to POST to a secret 'spotify-connect.php' file, which I have obviously removed from this repo. This would include your Spotify 'client_id' and 'client_secret', and go in the ./builds/development folder.
+My code will need to POST the 'spotify-connect.php' file, found in the ./builds/development folder. This will need to include your own personal Spotify 'client_id' and 'client_secret' keys.
 
-Here is the code, based on:
+The code is based on:
 
 https://gist.github.com/ahallora/4aac6d048742d5de0e65
-
-```php
-<?php
-
-$client_id = '<insert your spotify app client id>'; 
-$client_secret = '<insert your spotify app client secret>'; 
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,            'https://accounts.spotify.com/api/token' );
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
-curl_setopt($ch, CURLOPT_POST,           1 );
-curl_setopt($ch, CURLOPT_POSTFIELDS,     'grant_type=client_credentials' ); 
-curl_setopt($ch, CURLOPT_HTTPHEADER,     array('Authorization: Basic '.base64_encode($client_id.':'.$client_secret))); 
-
-$result=curl_exec($ch);
-$result = json_decode($result, true);
-$token = $result['access_token'];
-echo $token;
-
-?>
-```
 
 ## NOTE 2:
 
