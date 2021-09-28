@@ -25,9 +25,9 @@ Will perform a usual installation of any dependencies.
 
 Make sure you have already run 'npm install -g grunt-cli' to globally install the Grunt CLI.
 
-Will perform 'concat' and 'sass' tasks to format output in 'builds/development' folder.
+Will perform 'concat' and 'sass' tasks to format JS and CSS from 'components' into 'builds/development' output folder.
 
-Will perform 'connect' and 'watch' tasks for development on http://localhost:3000.
+Will perform 'php' and 'watch' tasks for development on http://localhost:3000.
 
 ## NOTE 1:
 

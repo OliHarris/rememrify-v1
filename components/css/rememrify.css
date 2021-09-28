@@ -195,11 +195,11 @@
     line-height: 1.25;
 }
 
-#wikichart tr.song-wrapper th {
+#wikichart tr.wrapper th {
 	font-weight: 700;
 }
 
-#wikichart tr.song-wrapper td:nth-of-type(1) {
+#wikichart tr.wrapper td:nth-of-type(1) {
 	width: 20%;
 	padding-right: 1em;
     color: #3042fa;
@@ -208,16 +208,16 @@
 	text-align: center;
 }
 
-#wikichart tr.song-wrapper td:nth-of-type(1) {
+#wikichart tr.wrapper td:nth-of-type(1) {
 	font-size: 1.5rem;
 }
 
-#wikichart tr.song-wrapper td {
+#wikichart tr.wrapper td {
 	padding-top: 0.25em;
 	vertical-align: bottom;
 }
 
-#wikichart tr.song-wrapper + iframe {
+#wikichart tr.wrapper + iframe {
 	width: 100%;
 }
 
@@ -225,17 +225,17 @@
 /* -----------------------------------------------
 :: #wikichart five-columns
 -------------------------------------------------- */
-#wikichart tr.song-wrapper.five-columns *:nth-of-type(2),
-#wikichart tr.song-wrapper.five-columns *:nth-of-type(3) {
+#wikichart tr.wrapper.five-columns *:nth-of-type(2),
+#wikichart tr.wrapper.five-columns *:nth-of-type(3) {
 	display: none;
 }
 
-#wikichart tr.song-wrapper.five-columns *:nth-of-type(4) {
+#wikichart tr.wrapper.five-columns *:nth-of-type(4) {
 	padding-right: 1em;
 }
 
-#wikichart tr.song-wrapper.five-columns *:nth-of-type(4),
-#wikichart tr.song-wrapper.five-columns *:nth-of-type(5) {
+#wikichart tr.wrapper.five-columns *:nth-of-type(4),
+#wikichart tr.wrapper.five-columns *:nth-of-type(5) {
 	width: 40%;
 	text-align: left;
 }
@@ -244,18 +244,18 @@
 /* -----------------------------------------------
 :: #wikichart six-columns
 -------------------------------------------------- */
-#wikichart tr.song-wrapper.six-columns *:nth-of-type(2),
-#wikichart tr.song-wrapper.six-columns *:nth-of-type(3),
-#wikichart tr.song-wrapper.six-columns *:nth-of-type(4) {
+#wikichart tr.wrapper.six-columns *:nth-of-type(2),
+#wikichart tr.wrapper.six-columns *:nth-of-type(3),
+#wikichart tr.wrapper.six-columns *:nth-of-type(4) {
 	display: none;
 }
 
-#wikichart tr.song-wrapper.six-columns *:nth-of-type(5) {
+#wikichart tr.wrapper.six-columns *:nth-of-type(5) {
 	padding-right: 1em;
 }
 
-#wikichart tr.song-wrapper.six-columns *:nth-of-type(5),
-#wikichart tr.song-wrapper.six-columns *:nth-of-type(6) {
+#wikichart tr.wrapper.six-columns *:nth-of-type(5),
+#wikichart tr.wrapper.six-columns *:nth-of-type(6) {
 	width: 40%;
 	text-align: left;
 }
@@ -264,19 +264,19 @@
 /* -----------------------------------------------
 :: #wikichart seven-columns
 -------------------------------------------------- */
-#wikichart tr.song-wrapper.seven-columns *:nth-of-type(2),
-#wikichart tr.song-wrapper.seven-columns *:nth-of-type(3),
-#wikichart tr.song-wrapper.seven-columns *:nth-of-type(4),
-#wikichart tr.song-wrapper.seven-columns *:nth-of-type(5) {
+#wikichart tr.wrapper.seven-columns *:nth-of-type(2),
+#wikichart tr.wrapper.seven-columns *:nth-of-type(3),
+#wikichart tr.wrapper.seven-columns *:nth-of-type(4),
+#wikichart tr.wrapper.seven-columns *:nth-of-type(5) {
 	display: none;
 }
 
-#wikichart tr.song-wrapper.seven-columns *:nth-of-type(6) {
+#wikichart tr.wrapper.seven-columns *:nth-of-type(6) {
 	padding-right: 1em;
 }
 
-#wikichart tr.song-wrapper.seven-columns *:nth-of-type(6),
-#wikichart tr.song-wrapper.seven-columns *:nth-of-type(7) {
+#wikichart tr.wrapper.seven-columns *:nth-of-type(6),
+#wikichart tr.wrapper.seven-columns *:nth-of-type(7) {
 	width: 40%;
 	text-align: left;
 }
