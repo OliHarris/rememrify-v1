@@ -387,6 +387,7 @@
             <div class="content">
               <h1>Rememrify</h1>
               <h2>The Spotify UK Charts Archive generator</h2>
+              <hr />
               <div class="spacer">
                 <p class="center">
                   Time-travel through Spotify lists of the UK Top 20!
@@ -405,7 +406,8 @@
               <div class="panel center">
                 <div class="content">
                   <h2>Choose a chart week</h2>
-                  Maybe your birthday plus 13 years..?
+                  <div class="spacer">Maybe your birthday plus 13 years..?</div>
+                  <hr />
                   <div id="weekpicker">
                     <div class="loading-overlay hide">
                       <div>
@@ -451,11 +453,13 @@
             <section class="small-12 large-6 xlarge-7 columns">
               <div class="panel center">
                 <div class="content">
-                  <h2>UK Top 20 Chart</h2>
+                  <h2 id="chart-total"></h2>
                   <div class="spacer">
                     Week starting: <strong id="week-start"></strong>
                   </div>
+                  <hr />
                   <article id="wikichart"></article>
+                  <hr />
                   <p>
                     Note: Some results returned may not be completely precise!
                   </p>
@@ -478,6 +482,7 @@
                       discuss"</em
                     ><br />~ Bill Drummond
                   </p>
+                  <hr />
                   <h2>Further info</h2>
                   <p>
                     If you are browsing this site from your desktop, and logged
@@ -489,6 +494,7 @@
                     You can enjoy playback of full songs rather than 30 second
                     snippets!
                   </p>
+                  <hr />
                   <h2>Credits</h2>
                   <p>
                     This would not be possible without the
@@ -510,9 +516,9 @@
                   </p>
                   <p>
                     All design and implementation &copy;
-                    <a href="https://enginebreath.uk" target="_blank"
-                      >ENGINEBREATH.uk</a
-                    >, 2017.
+                    <a href="http://github.com/oliharris" target="_blank"
+                      >Oliver Harris</a
+                    >, 2017, 2021
                   </p>
                   <!--                                <h2>Contact</h2>
                                 <p>If you find any anomalies, Rememrify can be tuned further - feel free to email <a href="mailto:info@rememrify.com">info@rememrify.com</a>.</p>

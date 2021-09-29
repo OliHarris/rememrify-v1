@@ -13,9 +13,9 @@ function a(b,d){function e(a,b){return function(){return a.apply(b,arguments)}}v
 
 //----------------------------------------
 function weekpicker() {
-  var dateText = "Please select",
-    display = $("#week-start");
-  display.text(dateText);
+  var total = 20;
+  var totalText = "UK Top " + total + " Chart";
+  $("#chart-total").text(totalText);
 
   $("#weekpicker").weekpicker({
     firstDay: 6,
@@ -26,21 +26,12 @@ function weekpicker() {
     minDate: new Date(1957, 0, 5),
     maxDate: new Date(2012, 3, 27),
     onSelect: function (dateText, startDateText, startDate, endDate, inst) {
-      display.text(startDateText);
-      generate_url(startDateText);
+      $("#week-start").text(startDateText);
+      //generate url hash based on selection
+      window.location.hash = "date=" + startDateText;
       populate_top_twenty();
     },
   });
-
-  //generate url hash based on selection
-  function generate_url(startDateText) {
-    var url = window.location.href,
-      separator = url.indexOf("?") === -1 ? "" : "?",
-      newParam = separator + "date=" + startDateText;
-    newUrl = url.replace(newParam, "");
-    newUrl = newParam;
-    window.location.hash = newUrl;
-  }
   $(".ui-datepicker-current-day").click();
 
   //hack for no date formatting on latest date initially
@@ -68,7 +59,6 @@ function weekpicker() {
     var wikiChartAPI_URL_raw =
       "https://uk-charts-archive.wikia.com/api.php?action=parse&format=json&page=";
     var chart_parse = $("#week-start").text();
-    console.log(chart_parse);
     var wikiChartAPI_URL =
       wikiChartAPI_URL_raw +
       "UK_Singles_%26_Album_Chart_(" +
@@ -94,8 +84,10 @@ function weekpicker() {
           .wrapInner(
             "<td><table style='width: 100%;'><tr class='wrapper'></tr></table></td>"
           );
-        //remove unneeded output below top 20
-        $("#wikichart tr.song-row:nth-of-type(1n+22)").remove();
+        //remove unneeded output below total
+        $(
+          "#wikichart tr.song-row:nth-of-type(1n+" + (total + 2) + ")"
+        ).remove();
         //format different table columns parsed
         if ($("#wikichart tr.info-row th").length == 5) {
           $("#wikichart tr.wrapper").addClass("five-columns");
@@ -153,7 +145,7 @@ function weekpicker() {
         (function arrayLooper() {
           //loop through arrays, with promise resolver
           var promises = [];
-          for (var i = 0; i < 20; i++) {
+          for (var i = 0; i < total; i++) {
             function stringCleanser(string) {
               return (
                 string
@@ -255,7 +247,7 @@ function weekpicker() {
                     //console.log(spotifyAPI_SRC);
                     //iframe create
                     var $iframe = $("<iframe>", {
-                      src: "",
+                      src: spotifyAPI_SRC,
                       frameborder: "0",
                       allowtransparency: "true",
                       allow: "encrypted-media",
@@ -265,10 +257,9 @@ function weekpicker() {
                       $(
                         "#wikichart tr.song-row:nth-of-type(" +
                           loop_number +
-                          ") tr.load-wrapper td"
+                          ") tr.load-wrapper"
                       ).hide();
                     });
-                    $iframe.attr("src", spotifyAPI_SRC);
                     $(
                       "#wikichart tr.song-row:nth-of-type(" +
                         loop_number +

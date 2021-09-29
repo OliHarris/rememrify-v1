@@ -127,6 +127,10 @@
 	position: relative;
 }
 
+#wikichart .song-row > td > table {
+	min-height: 127px;
+}
+
 #weekpicker {
 	max-width: 14.5em;
 	margin: 0 auto 1em;
@@ -186,7 +190,7 @@
 }
 
 #wikichart > table {
-	min-height: 2604px;
+	/* min-height: 2604px; */
 	font-family: 'OpenSans', Tahoma, sans-serif;
 	font-weight: 400; 
 	font-size: 16px !important;
@@ -306,7 +310,7 @@
 }
 
 .load-wrapper {
-    bottom: 4px;
+    bottom: 5px;
     left: 0;
     position: absolute;
     width: 100%;
