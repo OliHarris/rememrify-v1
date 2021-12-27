@@ -13,6 +13,8 @@ Lots of great functional ideas stemmed from this project (generated from showing
 
 Sometimes anomalies are returned - the code can be tuned further to take care of these.
 
+Whole codebase could be re-written in at least ES6 at some point too...
+
 ## Available Scripts
 
 In the project directory you can run:
