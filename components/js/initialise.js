@@ -11,11 +11,15 @@ function weekpicker() {
     yearRange: "1957:2012",
     minDate: new Date(1957, 0, 5),
     maxDate: new Date(2012, 3, 27),
+    onUpdateDatepicker: function (inst) {
+      populate_history();
+    },
     onSelect: function (dateText, startDateText, startDate, endDate, inst) {
       $("#week-start").text(startDateText);
       //generate url hash based on selection
       window.location.hash = "date=" + startDateText;
       populate_top_twenty();
+      $("#history-output").addClass("no-content");
     },
   });
   $(".ui-datepicker-current-day").click();
@@ -37,6 +41,67 @@ function weekpicker() {
      $('#weekpicker').find(".ui-datepicker-current-day").removeClass("ui-datepicker-current-day");
      };*/
 
+  function populate_history() {
+    // add another check to only call if History pane empty (no call on arrow use)
+    if ($("#history-output").hasClass("no-content")) {
+      $("#history-output").removeClass("no-content");
+      $("#history-output").find("li").remove();
+      var wikipediaAPI_URL_raw =
+        "https://en.wikipedia.org/api/rest_v1/feed/onthisday/selected/";
+      var detailed_date_array = [];
+      $("#weekpicker")
+        .find(".ui-datepicker-current-day")
+        .each(function () {
+          // don't count first detection on load
+          if (!$(this).hasClass("ui-datepicker-days-cell-over")) {
+            detailed_date_array.push(
+              ("0" + $(this)[0].innerText).slice(-2) +
+                "/" +
+                ("0" + (parseInt($(this)[0].dataset.month) + 1)).slice(-2) +
+                "/" +
+                $(this)[0].dataset.year
+            );
+          }
+        });
+      // only call wiki API if seven days
+      if (detailed_date_array.length === 7) {
+        detailed_date_array.forEach(function (dateValue, index, arr) {
+          var day = dateValue.split("/")[0];
+          var month = dateValue.split("/")[1];
+          var year = dateValue.split("/")[2];
+          var wikipediaAPI_URL = wikipediaAPI_URL_raw + month + "/" + day;
+          //create day/month array based on selection then cross-reference against API with anything in year field
+          $.ajax({
+            url: wikipediaAPI_URL,
+            dataType: "json",
+            success: function (data) {
+              // find results
+              data.selected.forEach(function (eventValue, index, arr) {
+                // find year instances amongst returned data
+                if (eventValue.year === parseInt(year)) {
+                  $("#history-output").find("li.no-history").remove();
+                  $("#history-output").append(
+                    "<li><hr /><strong>" +
+                      dateValue +
+                      "</strong><br />" +
+                      eventValue.text +
+                      "</li>"
+                  );
+                }
+                // if no results
+                if ($("#history-output").children().length === 0) {
+                  $("#history-output").append(
+                    "<li class='no-history'>No selected events found!</li>"
+                  );
+                }
+              });
+            },
+          });
+        });
+      }
+    }
+  }
+
   function populate_top_twenty() {
     $("#weekpicker .loading-overlay").show();
     //can't query JSON at https://uk-charts-archive.wikia.com/ as prop=extracts not recognised by WikiMedia API
@@ -44,11 +109,11 @@ function weekpicker() {
     //can improve Solar System!! Only need URL-raw as below. Also Wiki URL can be queried with inprop
     var wikiChartAPI_URL_raw =
       "https://uk-charts-archive.wikia.com/api.php?action=parse&format=json&page=";
-    var chart_parse = $("#week-start").text();
+    var date_selected = $("#week-start").text();
     var wikiChartAPI_URL =
       wikiChartAPI_URL_raw +
       "UK_Singles_%26_Album_Chart_(" +
-      chart_parse +
+      date_selected +
       ")&callback=?";
     $.ajax({
       url: wikiChartAPI_URL,
