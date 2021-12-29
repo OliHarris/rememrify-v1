@@ -8,6 +8,9 @@ const weekpicker = () => {
     if ($("#history-output").hasClass("no-content")) {
       $("#history-output").removeClass("no-content");
       $("#history-output").find("li").remove();
+      $("#history-output").append(
+        "<li class='loading-history'><hr />Loading...</li>"
+      );
       const wikipediaAPI_URL_raw =
         "https://en.wikipedia.org/api/rest_v1/feed/onthisday/events";
       const detailed_date_array = [];
@@ -17,11 +20,10 @@ const weekpicker = () => {
           // don't count first detection on load
           if (!$(element).hasClass("ui-datepicker-days-cell-over")) {
             detailed_date_array.push(
-              `${("0" + $(element)[0].innerText).slice(-2)}
-                /
-                ${("0" + (parseInt($(element)[0].dataset.month) + 1)).slice(-2)}
-                /
-                ${$(element)[0].dataset.year}`
+              `${("0" + $(element)[0].innerText).slice(-2)}/${(
+                "0" +
+                (parseInt($(element)[0].dataset.month) + 1)
+              ).slice(-2)}/${$(element)[0].dataset.year}`
             );
           }
         });
@@ -62,16 +64,19 @@ const weekpicker = () => {
         });
         //when all promises resolved
         $.when.apply(null, promises).done(() => {
+          $("#history-output").find("li.loading-history").remove();
           if (events_array.length === 0) {
             // if no results
             $("#history-output").append(
-              "<li class='no-history'>No significant events found!</li>"
+              "<li class='no-history'><hr />No significant events found!</li>"
             );
           } else {
             // if results
             $("#history-output").find("li.no-history").remove();
             const events_array_sorted = events_array.sort((a, b) => {
-              return a.date.localeCompare(b.date);
+              a = a.date.split("/").reverse().join("");
+              b = b.date.split("/").reverse().join("");
+              return a.localeCompare(b);
             });
             events_array_sorted.forEach((sortedEvent, index, arr) => {
               $("#history-output").append(
