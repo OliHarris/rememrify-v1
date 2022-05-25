@@ -42,4 +42,4 @@ https://gist.github.com/ahallora/4aac6d048742d5de0e65
 
 Github pages currently do not support PHP as it only supports static websites, hence the link located at:
 
-http://rememrify.byethost4.com
+http://rememrify.byethost17.com
