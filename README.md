@@ -40,6 +40,4 @@ https://gist.github.com/ahallora/4aac6d048742d5de0e65
 
 ## NOTE 2:
 
-Github pages currently do not support PHP as it only supports static websites, hence the link located at:
-
-http://rememrify.byethost17.com
+Github pages currently do not support PHP as it only supports static websites, hence this is beinf redeveloped to use a React / Typescript frontend with a Node backend.
