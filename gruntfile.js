@@ -25,7 +25,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    implementation: require('node-sass'),
+                    implementation: require('sass'),
                     style: 'expanded'
                 },
                 files: [{
