@@ -1,4 +1,4 @@
-# rememrify
+# rememrify v1.0
 The Spotify UK Charts Archive generator
 
 A successful personal project that was created to prove I could build an innovative solution from scratch.
